@@ -1,0 +1,63 @@
+﻿<Window x:Class="TwitchAlerts.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TwitchAlerts"
+        mc:Ignorable="d"
+        Title="TwitchAlerts" Height="450" Width="800" Icon="Icon/icons8-twitch-48.png">
+    <Grid Background="#18181B" RenderTransformOrigin="0.412,0.499">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="282"/>
+            <ColumnDefinition Width="518*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Horizontal">
+            <Image Source="Icon/twitchimg.png" Width="100" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Canvas>
+                <TextBlock Text="TwitchAlerts" FontFamily="{StaticResource MainFont}" FontWeight="Bold" Height="45" Canvas.Top="30" Canvas.Left="0" Foreground="#A970FF" FontSize="30"/>
+                <TextBlock Text="by.exdeal" FontFamily="{StaticResource MainFont}" Canvas.Top="20" Canvas.Left="-8" Foreground="#EFEFFF" Height="20"/>
+            </Canvas>
+        </StackPanel>
+        <Rectangle Grid.Column="1" Fill="#0E0E10"/>
+        <DockPanel Grid.Column="1" Grid.Row="0">
+            <TextBox Width="300" x:Name="ChannelUrl" Height="50" Margin="20"
+                     VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                     Text="Введите URL" DockPanel.Dock="Top">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Padding" Value="10"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" Value="Purple"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border CornerRadius="10"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <Grid>
+                                            <ScrollViewer x:Name="PART_ContentHost"
+                                              HorizontalScrollBarVisibility="Hidden"
+                                              VerticalScrollBarVisibility="Hidden"/>
+                                            <Button Content="Go" Width="53" HorizontalAlignment="Left"
+                                                    BorderBrush="{TemplateBinding BorderBrush}" Background="White" BorderThickness="0" Margin="236,3,0,6" Click="Button_Click"/>
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+        </DockPanel>
+        <Image x:Name="img" Width="200" Height="200"/>
+        <Image x:Name="CategoryImage" Width="300" Margin="109,254,109,7" Grid.Column="1"/>
+        <TextBlock x:Name="ResultText" TextWrapping="Wrap" FontFamily="{StaticResource MainFont}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
